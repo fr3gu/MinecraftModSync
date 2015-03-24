@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Height="25" Width="120" Margin="10,10,0,0" VerticalAlignment="Top">Humbugar!</Label>
+        <Grid Grid.Row="0" Grid.Column="0" Margin="10,37,10,80">
+            <ListBox Grid.Row="0" Grid.Column="0" Name="ListBox1" ItemsSource="{Binding}"/>
+        </Grid>
+        <Button Name="Button1" Content="Refresh" Width="60" Height="40" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10, 250, 10, 0" Click="Button1_OnClick"></Button>
+
     </Grid>
 </Window>
