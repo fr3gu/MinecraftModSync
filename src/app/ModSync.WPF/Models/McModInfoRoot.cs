@@ -24,9 +24,9 @@ namespace ModSync.WPF.Models
             var stringBuilder = new StringBuilder();
             foreach (var mcModInfo in McModInfos)
             {
-                stringBuilder.Append(mcModInfo);
+                stringBuilder.AppendLine(mcModInfo.ToString());
             }
-            return stringBuilder.ToString();
+            return stringBuilder.ToString().TrimEnd(Environment.NewLine.ToCharArray());
         }
     }
 }

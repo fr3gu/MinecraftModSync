@@ -3,15 +3,30 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ModSync.WPF"
+        xmlns:modsync="clr-namespace:ModSync.WPF.Models"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="525" MinWidth="525" MinHeight="310">
+
     <Grid>
         <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Height="25" Width="120" Margin="10,10,0,0" VerticalAlignment="Top">Humbugar!</Label>
         <Grid Grid.Row="0" Grid.Column="0" Margin="10,37,10,80">
-            <ListBox Grid.Row="0" Grid.Column="0" Name="ListBox1" ItemsSource="{Binding}"/>
+            <ListBox Grid.Row="0" Grid.Column="0" Name="ListBox1" ItemsSource="{Binding}" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate DataType="modsync:ModArchiveInfo">
+                        <Border Margin="4" BorderThickness="2" BorderBrush="Blue" CornerRadius="3">
+                            <StackPanel MinHeight="40" HorizontalAlignment="Left" Margin="4">
+                                <TextBlock Text="{Binding FileName}" HorizontalAlignment="Stretch" FontWeight="Bold"></TextBlock>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Version}" HorizontalAlignment="Stretch"></TextBlock>
+                                </StackPanel>
+                                <TextBlock Text="{Binding McModInfoRoot}" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis"></TextBlock>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </Grid>
-        <Button Name="Button1" Content="Refresh" Width="60" Height="40" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10, 250, 10, 0" Click="Button1_OnClick"></Button>
-
+        <Button Name="Button1" Content="Refresh" Margin="0,0,10,29" Click="Button1_OnClick" Height="40" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="60"/>
+        <Button Name="Button2" Content="Refresh" Margin="0,0,110,29" Click="Button2_OnClick"  Height="40" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="60"/>
     </Grid>
 </Window>

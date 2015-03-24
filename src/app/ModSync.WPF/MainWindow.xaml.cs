@@ -17,7 +17,8 @@ namespace ModSync.WPF
         public MainWindow()
         {
             InitializeComponent();
-            ListBox1.DataContext = GetModInfos(@"C:\temp\modsync_test");
+            var modArchiveInfos = GetModInfos(@"C:\temp\modsync_test");
+            ListBox1.DataContext = modArchiveInfos;
         }
 
         private IEnumerable<ModArchiveInfo> GetModInfos(string path)
@@ -91,6 +92,14 @@ namespace ModSync.WPF
         private void Button1_OnClick(object sender, RoutedEventArgs e)
         {
             ListBox1.DataContext = GetModInfos(@"C:\temp\modsync_test");
+        }
+
+        private void Button2_OnClick(object sender, RoutedEventArgs e)
+        {
+            var dialog = new Microsoft.Win32.OpenFileDialog();
+            dialog.FileName = "Document";
+
+            var result = dialog.ShowDialog();
         }
     }
 }
